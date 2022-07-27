@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="skin.css"> 
+   <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="custom.js"></script>
+    <title>Document</title>
+</head>
+<style>
+ * {
+  box-sizing: border-box;
+}
+
+body {
+  
+  font-family: Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  background-color: rgba(233, 233, 233, 0.582); 
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px;
+
+}
+
+/* Container around content */
+.containerTimeline {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+}
+
+/* The circles on the timeline */
+.containerTimeline::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: -17px;
+  background-color: rgb(0, 0, 0);
+  border: 4px solid #01d4f0;
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* Place the container to the left */
+.left {
+  left: 0;
+}
+
+/* Place the container to the right */
+.right {
+  left: 50%;
+}
+
+/* Add arrows to the left container (pointing right) */
+.left::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  right: 30px;
+  border: medium solid rgb(0, 0, 0);
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent black;
+}
+
+/* Add arrows to the right container (pointing left) */
+.right::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  left: 30px;
+  border: medium solid white;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent rgb(0, 0, 0) transparent transparent;
+
+}
+
+/* Fix the circle for containers on the right side */
+.right::after {
+  left: -16px;
+}
+
+/* The actual content */
+.contentTimeLine {
+  padding: 20px 30px;
+  position: relative;
+  border-radius: 15px;
+  box-shadow: 0px 2px 8px 0px var(--clr-gray-light);
+}
+
+/* Media queries - Responsive timeline on screens less than 600px wide */
+@media screen and (max-width: 600px) {
+  /* Place the timelime to the left */
+  .timeline::after {
+  left: 31px;
+  }
+  
+  /* Full-width containers */
+  .containerTimeline {
+  width: 100%;
+  padding-left: 70px;
+  padding-right: 25px;
+  }
+  
+  /* Make sure that all arrows are pointing leftwards */
+  .containerTimeline::before {
+  left: 60px;
+  border: medium solid white;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent white transparent transparent;
+  }
+
+  /* Make sure all circles are at the same spot */
+  .left::after, .right::after {
+  left: 15px;
+  }
+  
+  /* Make all right containers behave like the left ones */
+  .right {
+  left: 0%;
+  }
+}
+
+/* Client Section Css */
+.section-padding{
+padding:60px 0;
+/* box-shadow: 0 2px 15px rgb(131, 181, 255); */
+}
+.brand-carousel {
+background: rgb(255, 255, 255);
+
+}
+.owl-dots {
+text-align: center;
+margin-top: 4%;
+}
+.owl-dot {
+display: inline-block;
+height: 15px !important;
+width: 15px !important;
+background-color: #878787 !important;
+opacity: 0.8;
+border-radius: 50%;
+margin: 0 5px;
+}
+.owl-dot.active {
+background-color: #000 !important;
+}
+.headerImageAbout > img {
+  margin-top: 5%;
+  width: 100%;
+}
+.TimeLineSectionMargin{
+  margin-top: 5%;
+}
+
+.text-main-text {
+    width: 100%;
+    margin-top: 10em;
+    margin-bottom: 10em;
+}
+.head-img {
+  background-image: url(img/head2.jpg);
+  background-size: cover;
+  background-position: 0%;
+  opacity: 80%;
+  z-index: -2;
+
+  height: 800px;
+  width: 100%;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.head-img h1 {
+  color: black;
+  font-size: 80px;
+  width: 700px;
+  margin-top: 110px;
+  padding-left: 50px;
+}
+.contentserv {
+  background-image: url(img/headingblob.png);
+  background-size: cover;
+  background-position: 0%;
+  opacity: 80%;
+
+  height: 400px;
+  width: 800px;
+}
+
+.services{
+	width:100%;
+	height: 400px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+}
+ 
+ 
+.service-item-container{
+	width:100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.service-item{
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width:300px;
+	padding: 20px 25px;
+	height: 400px;
+	box-sizing: border-box;
+	margin: 30px;
+	position: relative;
+	background: #fff;
+	border-radius: 10px;
+	box-shadow: 0 1px 2px rgba(122, 119, 119, 0.07);
+	cursor: pointer;
+}
+.service-item img{
+	height: 75px;
+}
+.service-item h3{
+text-align: center;
+}
+.service-item p{
+	color: rgba(87,105,117,0.90);
+	text-align: center;
+}
+.button{
+	width: 140px;
+	height: 40px;
+	border-radius:5px;
+	border:1px solid rgba(74,144,226,0.50);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color:#576975;
+	margin-top:10px; 
+}
+.bar{
+	width: 200px;
+	height: 6px;
+	position: absolute;
+	left: 50%;
+	top: 0%;
+	transform: translateX(-50%);
+	background-color: #00d4ff; 
+	border-radius: 0px 0px 10px 10px;
+	display: none;
+	animation: bar 0.5s;
+}
+.service-item:hover{
+	box-shadow: 2px 2px 30px rgba(0,0,0,0.08);
+	transition: all ease 0.3s;
+}
+.button:hover{
+	background-color:#4a90e2;
+	border: 1px solid #4a90e2;
+	color:#FFFFFF;
+	transition: all ease 0.3s;
+}
+.service-item:hover .bar{
+	display: block;
+}
+@keyframes bar{
+	0%{
+		width:0px;
+	}
+	100%{
+		width:200px;
+	}
+}
+@media(max-width:1050px){
+	.service-item-container{
+		flex-wrap: wrap;
+		
+	}	
+	.services{
+		height: auto;
+	}
+	.s-heading{
+		margin: 15px;
+	}
+	.service-item{
+		flex-grow: 1;
+	}
+	
+}
+.owl-carousel .owl-item img {
+    display: block;
+    width: 55%;
+}
+   </style>
+<body>
+    
+  <header>
+    <nav>
+      <div class="navbar">
+        <i class="fas fa-bars"></i>
+        <div class="logo"><a href="index.html">Security</a></div>
+        <div class="nav-links">
+          <div class="sidebar-logo">
+            <span class="logo-name">Security</span>
+            <i class="fas fa-times"></i>
+          </div>
+          <ul class="menus">
+            <li><a class="line" href="index.html">home</a></li>
+            <li><a class="line" href="about.html">about</a>
+              <ul class="sub-menu">
+                <li><a class="pnt" href="#OurVision">Our Vision</a></li>
+                <li><a class="pnt" href="#OurExperience">Our Experience</a></li>
+                <li><a class="pnt" href="#OurAdvantages">Our Policies</a></li>
+                <li><a class="pnt" href="#OurPricing">Our Prices</a></li>
+                <li><a class="pnt" href="#">Our Accreditations</a></li>
+                <li><a class="pnt" href="#OurTeam">Our Team</a></li>
+                <li><a class="pnt" href="#OurPartners">Our Partners</a></li>
+  
+              </ul>
+  
+            </li>
+            <li><a class="line" href="#">services</a>
+              <ul class="sub-menu">
+                <li><a class="pnt" href="static.html">Static Security</a></li>
+                <li><a class="pnt" href="mobile-patrolling.html">Mobile Patrolling</a></li>
+                <li><a class="pnt" href="cctv-monitoring.html">CCTV Monitoring</a></li>
+                <li><a class="pnt" href="lockandunlock.html">Lock & unlock</a></li>
+                <li><a class="pnt" href="vacant-unit-check.html">Vacant Unit Checks</a></li>
+                <li><a class="pnt" href="technology-product.html">Technology Product</a></li>
+                <li><a class="pnt" href="manned-guarding.html">Manned Guarding</a></li>
+                <li><a class="pnt" href="support-and-management.html">Support & Management</a></li>
+                <li><a class="pnt" href="event-security.html">Event Security</a></li>
+              </ul>
+            </li>
+  
+            <li><a class="line" href="contact.html">contact us</a></li>
+            <li><a  href="#"><lord-icon
+              src="https://cdn.lordicon.com/msoeawqm.json"
+              trigger="hover"
+              colors="primary:#121331,secondary:#00d4ff"
+              style="width:40px;height:40px">
+          </lord-icon></a></li>
+            <li><a href="#"><lord-icon
+              src="https://cdn.lordicon.com/slkvcfos.json"
+              trigger="hover"
+              colors="primary:#121331,secondary:#00d4ff"
+              style="width:50px;height:50px">
+          </lord-icon></a></li>
+            <li><a class="contact-btn" href="#"><span><i class="fas fa-phone-alt"></i></span> 020 7946 0020</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+<section class="head-img">
+  <div class="contentserv">
+              <h1 class="headings">About US</h1>
+  
+  </div>
+      </section>
+      <section  class="services-sec">
+        <div class="container grid-contact">
+            <div class="slide-in services-text">
+                <h1>
+          OUR EXPERIENCE
+                </h1>
+                <p>
+                  Our security agency is committed to helping every client who is at risk. We owe our lives to save the one of a client. We know everything about security. Our staff has valuable experience, doing this job for almost twenty years.
+                  <br>
+                  Each security agent goes through a set of instructions and challenges to join our professional team. We promise that we won't let you down no matter how tough a situation may be.
+                </p>
+        
+            </div>
+            <div   class="slide-in service-img">
+                <img src="img/services11.jpg" alt="">
+            </div>
+        
+        </div>
+        </section>
+        <section id="OurVision" class="services">
+           <div class="service-item-container">	
+              <div class="service-item  fade-in" style="
+              height: 405px;
+          ">
+                 <div class="bar"></div>
+                 <div class="item">
+                  <img src="img/1.svg" alt="">
+                 </div>
+                 <h1>Who We Are</h1>
+                 <p>We are men of word, standing foursquare behind our clients.</p>
+                 <a style="margin-bottom: 20px;" class="btnb" href="#">Read More <i class="fas fa-long-arrow-alt-right"></i></a>
+              </div>
+              <div class="service-item  fade-in">
+                 <div class="bar"></div>
+                 <div class="item">
+                    <img src="img/2.svg" alt="">
+                 </div>
+                 <h1>Our Mission</h1>
+                 <p>There is no mission we can fail. We provide with the highest security level.</p>
+                 <a style="margin-bottom: 20px;" class="btnb" href="#">Read More <i class="fas fa-long-arrow-alt-right"></i></a>
+              </div>
+              <div class="service-item  fade-in">
+                 <div class="bar"></div>
+                 <div class="item">
+                  <img src="img/3.svg" alt="">
+                 </div>
+                 <h1 >Our Vision</h1>
+                 <p>We stand against violence, but if necessary we use our force.</p>
+                 <a style="margin-bottom: 20px;" class="btnb" href="#">Read More <i class="fas fa-long-arrow-alt-right"></i></a>
+              </div>
+           </div>
+        </section>
+        
+       <!-- <div class="headerImageAbout" > 
+              <img src="img/AboutUsHeader1.jpg"> </div> -->
+              
+       <div id="OurExperience" class="TimeLineSectionMargin">
+        <div class="text-main-text">
+          <h1 style="color: black;" class="headings">COMPANY TIMELINE</h1>
+          <div class="subhead">
+            Ensure your safety with a range of our services for individuals and businesses.
+          </div>
+      </div>
+      <div class="timeline">
+        <div class="containerTimeline left">
+          <div class="contentTimeLine">
+            <h2>2017</h2>
+            <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
+          </div>
+        </div>
+        <div class="containerTimeline right">
+          <div class="contentTimeLine">
+            <h2>2016</h2>
+            <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
+          </div>
+        </div>
+        <div class="containerTimeline left">
+          <div class="contentTimeLine">
+            <h2>2015</h2>
+            <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
+          </div>
+        </div>
+        <div class="containerTimeline right">
+          <div class="contentTimeLine">
+            <h2>2012</h2>
+            <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
+          </div>
+        </div>
+        <div class="containerTimeline left">
+          <div class="contentTimeLine">
+            <h2>2011</h2>
+            <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
+          </div>
+        </div>
+        <div class="containerTimeline right">
+          <div class="contentTimeLine">
+            <h2>2007</h2>
+            <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="OurAdvantages" class="text-main-text">
+        <h1 class="headings">Our Advantages</h1>
+        <div class="subhead">
+          We are able to guarantee your safety 24/7 no matter who you are and whatever you do.
+        </div>
+    </div>
+    <div class="wrapper-flex">
+        <div class="container-services  fade-in">
+          <div class='banner-img'></div><script src="https://cdn.lordicon.com/libs/frhvbuzj/lord-icon-2.0.2.js"></script>
+          <script src="https://cdn.lordicon.com/libs/frhvbuzj/lord-icon-2.0.2.js"></script>
+<lord-icon
+    src="https://cdn.lordicon.com/yqbqexfk.json"
+    trigger="hover"
+    colors="primary:#00d4ff,secondary:#333434"
+    stroke="64"
+    style="width:170px;height:220px">
+          
+          <img src='img/serv-1.png' alt='profile image' class="profile-img"></lord-icon>
+          <h1 class="name">Private Security</h1>
+          <p class="description">Our bodyguards are strong men and professionals who served in military forces.</p>
+        
+            <a style="margin-bottom: 20px;" class="btnb" href="#">Sign Up <i class="fas fa-long-arrow-alt-right"></i></a>
+        
+       
+        </div>
+    
+        <div class="container-services  fade-in">
+            <div class='banner-img'></div>
+            <lord-icon
+    src="https://cdn.lordicon.com/yqbqexfk.json"
+    trigger="hover"
+    colors="primary:#00d4ff,secondary:#333434"
+    stroke="64"
+    style="width:170px;height:220px">
+          
+            <img src='img/serv-2.png' alt='profile image' class="profile-img"></lord-icon>
+            <h1 class="name">Guard House</h1>
+            <p class="description">Settle a guard house behind your facility and we'll monitor the activity around the house.</p>
+            
+                <a style="margin-bottom: 20px;" class="btnb" href="#">Sign Up <i class="fas fa-long-arrow-alt-right"></i></a>
+            
+            
+          </div>
+          <div class="container-services  fade-in">
+            <div class='banner-img'></div>
+            <lord-icon
+            src="https://cdn.lordicon.com/yqbqexfk.json"
+            trigger="hover"
+            colors="primary:#00d4ff,secondary:#333434"
+            stroke="64"
+            style="width:170px;height:220px">
+                  
+            <img src='img/serv-3.png' alt='profile image' class="profile-img"></lord-icon>
+            <h1 class="name">24/7 Surveillance</h1>
+            <p class="description">our strong men and professionals  will do 24/7 security surveillance of your house with focus .</p>
+            
+                <a style="margin-bottom: 20px;" class="btnb" href="#">Sign Up <i class="fas fa-long-arrow-alt-right"></i></a>
+            
+            
+          </div>
+        
+        </div>
+    <!-- <section class="testimonials1">
+      <div class="text-main-text">
+          <h1 style="color: black;" class="headings">OUR VISSION</h1>
+          <div class="subhead">
+              Stay Upto date with our latest news
+          </div>
+      </div>
+
+      <div class="container8">
+          <div class="container8-content">
+             
+              <p>
+                We are committed to the ongoing improvement of the services we provide to our clients. 
+                By investing in and developing our most important assets, our staff, 
+                we aim to achieve all our goals and exceed our clients’ expectations. 
+                Through our commitment to high standards it is our vision to earn the trust of 
+                our clients by delivering the best quality security services within the UK.
+              </p>
+              <div class="author">
+                  <p>– Alicia McKanzey</p>
+              </div>
+
+          </div>
+
+          <div class="container-image">
+
+              <img src="img/testiEdit.webp" alt="">
+          </div>
+          </div>
+          </section> -->
+          <!-- <div class="text-main-text">
+            <h1 style="color: black;" class="headings">Our Vision</h1>
+            <div class="subhead">
+                Read honest testimonials of our clients who got secured thanks to our services.
+            </div>
+        </div> -->
+        
+         <!-- prizing table -->
+      <h1 id="OurPricing" class="headings">Our Pricing Table</h1>
+      <div class="subhead">
+        <p>
+          Our prices can let you secure your business or life with no large
+          expenses.
+        </p>
+      </div>
+      <div class="container-1">
+        <div class="box1">
+          <header class="heading-price">
+            <h2 class="title1">Starter</h2>
+            <p class="subtitle1">For small business</p>
+          </header>
+          <p class="price1">
+            <span class="nb1">$29</span>
+            <small class="year1">/yr</small>
+          </p>
+
+          <ul>
+            <li>02 CCTV Cameras</li>
+            <li>01 Security Guard</li>
+            <li>No Physical Protections</li>
+            <li>No Security With Dogs</li>
+            <li>No Change on Complain</li>
+          </ul>
+          <div class="btn-center">
+            <a class="btna" href=""
+              >Sign Up <i class="fas fa-long-arrow-alt-right"></i
+            ></a>
+          </div>
+        </div>
+        <div class="box2">
+          <header class="heading-price">
+            <h2 class="title2">Professional</h2>
+            <p class="subtitle2">For small business</p>
+          </header>
+          <p class="price2">
+            <span class="nb2">$59</span>
+            <small class="year2">/yr</small>
+          </p>
+
+          <ul class="price-text">
+            <li>20 CCTV Cameras</li>
+            <li>08 Security Guard</li>
+            <li>Yes Physical Protections</li>
+            <li>04 Security With Dogs</li>
+            <li>Yes Change on Complain</li>
+          </ul>
+
+          <div class="btn-center">
+            <a class="btna2" href=""
+              >Sign Up <i class="fas fa-long-arrow-alt-right"></i
+            ></a>
+          </div>
+        </div>
+        <div class="box1">
+          <header class="heading-price">
+            <h2 class="title1">Advance</h2>
+            <p class="subtitle1">For small business</p>
+          </header>
+          <p class="price1">
+            <span class="nb1">$29</span>
+            <small class="year1">/yr</small>
+          </p>
+
+          <ul>
+            <li>10 CCTV Cameras</li>
+            <li>02 Security Guard</li>
+            <li>No Physical Protections</li>
+            <li>01 Security With Dogs</li>
+            <li>No Change on Complain</li>
+          </ul>
+
+          <div class="btn-center">
+            <a class="btna" href=""
+              >Sign Up <i class="fas fa-long-arrow-alt-right"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <!-- prizing table end -->
+
+        <!-- Our Team sec start -->
+        <div id="OurTeam" class="cards-contain">
+          <h1 class="headings">Our Team</h1>
+          <div class="subhead">
+            <p>Team That you can Rely on</p>
+          </div>
+          <div class="wrapper2">
+            <div class="blog2">
+              <div class="single-blog">
+                <div class="blog-img">
+                  <img src="img/ourteam.jpg" alt="" />
+                  <!-- <a href="">category</a> -->
+                </div>
+  
+                <div class="blog-content">
+                  <h4>Bianca B.Rooney</h4>
+                  <p>Head Of Security Team</p>
+                  
+                </div>
+              </div>
+              <div class="single-blog">
+                <div class="blog-img">
+                  <img src="img/ourteam2.jpg" alt="" />
+                  <!-- <a href="">category</a> -->
+                </div>
+  
+                <div class="blog-content">
+                  <h4>ADALBERTO</h4>
+                  <p>Senior Guard</p>
+                  
+                </div>
+              </div>
+              <div class="single-blog">
+                <div class="blog-img">
+                  <img src="img/ourteam3.jpg" alt="" />
+                 
+                </div>
+  
+                <div class="blog-content">
+                  <h4>AMBROSE</h4>
+                  <p>Private Investigator</p>
+  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--  Our Team end -->
+
+        
+          <!-- Client section -->
+          <div id="OurPartners" class="text-main-text">
+            <h1 style="color: black;  margin-top: 0;" class="headings">OUR PARTNERS</h1>
+            <div class="subhead">
+               Our clients who got secured thanks to our services.
+            </div>
+        </div>
+          <div class="brand-carousel section-padding owl-carousel">
+            <div class="single-logo">
+              <img src="https://i.postimg.cc/QxPJ8hXy/brand-1.png" alt="">
+            </div>
+          <div class="single-logo">
+              <img src="https://i.postimg.cc/pdMQjC5Q/brand-2.png" alt="">
+            </div>
+          <div class="single-logo">
+              <img src="https://i.postimg.cc/B6qxYvgX/brand-3.png" alt="">
+            </div>
+          <div class="single-logo">
+              <img src="https://i.postimg.cc/d14GzKHn/brand-4.png" alt="">
+            </div>
+          <div class="single-logo">
+              <img src="https://i.postimg.cc/x8ZM13Sz/brand-5.png" alt="">
+            </div>
+          <div class="single-logo">
+              <img src="https://i.postimg.cc/B6qxYvgX/brand-3.png" alt="">
+            </div>
+          </div>
+
+
+
+          <footer>
+            <div class="footer">
+         
+      
+              <div class="row-foot">
+                
+                
+               
+               <div class="column-foot">
+                  <div class="span"></div>
+                  <h2 id="hh1"><b>Citrix</b></h2>
+                  <h1 id="hh2" >Consultancy</h1>
+                  <p class="main-para">Visualize quality intellectual capital without superior collaboration and idea sharing installed base portals.</p>
+                  <p><i class="fas fa-map-marker-alt i1 "></i> Address :4010 Feeney Way</p>
+                
+                    <p> <i class="fas fa-phone-alt i1 "></i>020 7946 0020  </p>
+                  
+                    <p><i class="fas fa-envelope i1"></i>critrixconsultancy@gmail.com</p>
+                
+                </div>
+                <div class="column-foot" >
+                  <div class="span"></div>
+                  <h2 id="hh1"><b>Our Locations</b></h2>
+                  <h1 id="hh2" >Where to find us?</h1>
+                 <img src="https://i.ibb.co/L0HJLvC/img-footer-map.png" height="200px" alt="img-footer-map" border="0">
+               
+                </div>
+                
+                <div class="column-foot" style="background-color:transparent">
+                  <div class="col"> 
+                    <p><i class="fas fa-map-marker-alt i1 "></i> San Diego: 619 270 8578  </p>
+                 
+                      <p><i class="fas fa-map-marker-alt i1 "></i> Ontario: 613 285 5534</p> 
+                      <p><i class="fas fa-map-marker-alt i1 "></i>London: 020 7946 0020 </p>
+                     
+                     
+                    
+                      
+                    </div>
+                  
+             
+                
+                  </div>
+                 
+             <div>
+              <div class="column-foot">
+                  <div class="span"></div>
+                  <h2 id="hh1"><b>Get in touch</b></h2>
+                  <h1 id="hh2" >Citrix Social links</h1>
+                  <p class="main-para">Taking seamless key performance indicators offline to maximise the long tail</p>
+                  <p>
+                    <i class="fab fa-facebook i "></i>
+                    <i class="fab fa-twitter-square i "></i>
+                    <i class="fab fa-pinterest i "></i>
+                    <i class="fab fa-linkedin i"></i>
+                   </p>    
+                </div>
+              </div>
+              
+             
+           
+          </div>
+          
+          
+          <div class="bottom-foot">
+          <div class="copyright">
+            <p>Copyright © 2021 CITRIX CONSULTANCY. All Rights Reserved.</p>
+          </div>
+          
+          
+          </div>
+          </footer>
+            <script src="script.js"></script>
+<script>
+  $('.brand-carousel').owlCarousel({
+  loop:true,
+  margin:10,
+  autoplay:true,
+  responsive:{
+    0:{
+      items:1
+    },
+    600:{
+      items:3
+    },
+    1000:{
+      items:5
+    }
+  }
+}) 
+
+</script>
+<script src="script.js"></script>          
+</body>
+</html>
